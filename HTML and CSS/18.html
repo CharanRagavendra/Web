@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiger Names by Age</title>
+</head>
+<body>
+    <h1>Tiger Names by Age</h1>
+    <label for="ageInput">Enter Tiger Age:</label>
+    <input type="number" id="ageInput" min="0" step="1">
+    <button onclick="displayNames()">Display Names</button>
+    <p id="result"></p>
+
+    <script>
+        // Predefined array of tiger names and ages
+        var tigers = [
+            { name: "Virumandi", age: 5 },
+            { name: "Polar", age: 3 },
+            { name: "Chottu", age: 5 },
+            { name: "Chiddu", age: 2 },
+            { name: "Kutty", age: 4 }
+        ];
+
+        function displayNames() {
+            var ageInput = document.getElementById("ageInput").value;
+            var result = document.getElementById("result");
+            result.textContent = ""; // Clear previous result
+
+            var matchingTigers = tigers.filter(function(tiger) {
+                return tiger.age == ageInput;
+            });
+
+            if (matchingTigers.length > 0) {
+                var names = matchingTigers.map(function(tiger) {
+                    return tiger.name;
+                }).join(", ");
+
+                result.textContent = "Tigers with age " + ageInput + ": " + names;
+            } else {
+                result.textContent = "No tigers found with age " + ageInput;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiger Conservation</title>
+<style>
+    /* Reset default styles */
+    body, h1, h2, h3, p, ul, ol, li, table, th, td {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        overflow-x: hidden; /* Prevent horizontal scrollbar */
+    }
+
+    header {
+        background-color: #f1f1f1;
+        padding: 10px 0;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .heading {
+        text-align: center;
+        color: #333;
+    }
+
+    nav ul {
+        list-style-type: none;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        display: inline-block;
+        margin-right: 20px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    nav ul li a:hover {
+        color: #00695c;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f1f1f1;
+    }
+
+    footer {
+        text-align: center;
+        background-color: #f1f1f1;
+        padding: 10px 0;
+    }
+
+    /* Style for the video */
+    video {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Two-column layout for statistics */
+    .statistics {
+        column-count: 2;
+        column-gap: 20px;
+    }
+
+    /* Clearfix for floated elements */
+    .clearfix::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <h1 class="heading">Tiger Conservation</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About Tigers</a></li>
+                <li><a href="#conservation">Conservation Efforts</a></li>
+                <li><a href="https://www.worldwildlife.org/species/tiger">External Link</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Tigers</h2>
+            <p>Information about tigers...</p>
+            <div class="content">
+                <img src="tiger.jpg" alt="Tiger">
+            </div>
+        </section>
+
+        <section id="conservation">
+            <h2>Conservation Efforts</h2>
+            <p>Efforts to conserve tigers...</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Conservation Statistics</th>
+                    </tr>
+                </thead>
+                <tbody class="statistics">
+                    <tr>
+                        <td>Tigers in the Wild</td>
+                        <td>2500</td>
+                    </tr>
+                    <tr>
+                        <td>Tigers in Captivity</td>
+                        <td>500</td>
+                    </tr>
+                    <tr>
+                        <td>Tigers in Sanctuaries</td>
+                        <td>1000</td>
+                    </tr>
+                    <tr>
+                        <td>Tigers in National Parks</td>
+                        <td>1000</td>
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td>5000</td>
+                    </tr>
+                </tbody>
+            </table>
+            <audio controls>
+                <source src="tiger_roar.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <div>
+                <h3>Key Strategies</h3>
+                <ul>
+                    <li>Protection of Tiger Habitats</li>
+                    <li>Anti-Poaching Measures</li>
+                    <li>Community Involvement in Conservation</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Endangered Species</h3>
+                <ol>
+                    <li>Bengal Tiger</li>
+                    <li>Siberian Tiger</li>
+                    <li>Sumatran Tiger</li>
+                </ol>
+            </div>
+            <div>
+                <h3>Tiger Age Categories</h3>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="age1" name="age" value="0-1" onclick="handleCheckbox(this)">
+                        <label for="age1">0-1 Year</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="age2" name="age" value="1-5" onclick="handleCheckbox(this)">
+                        <label for="age2">1-5 Years</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="age3" name="age" value="5+" onclick="handleCheckbox(this)">
+                        <label for="age3">5+ Years</label>
+                    </li>
+                </ul>
+            </div>
+            <button id="showReservesButton">Show Tiger Reserves in India</button>
+            <ul id="tigerReservesList"></ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Tiger Conservation-Charan</p>
+    </footer>
+
+    <script>
+        function handleCheckbox(checkbox) {
+            var checkboxes = document.querySelectorAll('input[name="age"]');
+            checkboxes.forEach(function (item) {
+                if (item !== checkbox) {
+                    item.disabled = checkbox.checked;
+                }
+            });
+
+            if (checkbox.checked) {
+                alert("Selected age: " + checkbox.value);
+            }
+        }
+
+        document.getElementById("showReservesButton").addEventListener("click", function () {
+            var tigerReserves = ["Bandipur Tiger Reserve", "Indravati Tiger Reserve", "Namdapha","Periyar","Valmiki","Melghat","Ranthambore"];
+            var list = document.getElementById("tigerReservesList");
+            list.innerHTML = "";
+            tigerReserves.forEach(function (reserve) {
+                var li = document.createElement("li");
+                li.textContent = reserve;
+                list.appendChild(li);
+            });
+        });
+    </script>
+</body>
+</html>

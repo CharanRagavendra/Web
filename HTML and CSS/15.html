@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infected Tigers</title>
+<style>
+    /* Reset default styles */
+    body, h1, table, th, td {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f1f1f1;
+    }
+
+    td:first-child {
+        font-weight: bold;
+    }
+
+    button {
+        padding: 5px 10px;
+        margin-top: 20px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+    <h1>Infected Tigers</h1>
+    <label for="infectedCount">Enter the count of infected tigers:</label>
+    <input type="number" id="infectedCount">
+    <button onclick="generateTable()">Generate Table</button>
+    <table id="infectedTable"></table>
+
+    <script>
+        function generateTable() {
+            var count = parseInt(document.getElementById("infectedCount").value);
+            var table = document.getElementById("infectedTable");
+            table.innerHTML = "";
+
+            var headerRow = table.insertRow();
+            var nameHeader = headerRow.insertCell();
+            nameHeader.textContent = "Name";
+            var rfidHeader = headerRow.insertCell();
+            rfidHeader.textContent = "RFID";
+
+            for (var i = 0; i < count; i++) {
+                var row = table.insertRow();
+                var nameCell = row.insertCell();
+                var rfidCell = row.insertCell();
+
+                var name = String.fromCharCode(65 + i); // Convert ASCII code to character (A, B, C, ...)
+                var rfid = i + 1;
+
+                nameCell.textContent = name;
+                rfidCell.textContent = rfid;
+            }
+        }
+    </script>
+</body>
+</html>

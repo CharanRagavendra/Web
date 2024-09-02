@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiger Names</title>
+</head>
+<body>
+    <h1 id="tigerName">Tiger Name</h1>
+    <p>Select a language:</p>
+    <ul>
+        <li><a href="#" onclick="changeLanguage('tamil')">Tamil</a></li>
+        <li><a href="#" onclick="changeLanguage('hindi')">Hindi</a></li>
+    </ul>
+
+    <script>
+        function changeLanguage(language) {
+            var tigerNameElement = document.getElementById("tigerName");
+            if (language === 'tamil') {
+                tigerNameElement.textContent = "புலி";
+            } else if (language === 'hindi') {
+                tigerNameElement.textContent = "बाघ";
+            }
+        }
+    </script>
+</body>
+</html>
