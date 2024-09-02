@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu Card</title>
+    <script>
+        function createCheckbox(itemName, itemCost) {
+            var checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.value = itemCost;
+            checkbox.onchange = function() {
+                if (this.checked) {
+                    alert("Cost of " + itemName + " * 2 = $" + (itemCost * 2));
+                }
+            };
+            document.body.appendChild(checkbox);
+            var label = document.createElement("label");
+            label.textContent = itemName;
+            document.body.appendChild(label);
+            document.body.appendChild(document.createElement("br"));
+        }
+    </script>
+</head>
+<body>
+    <h2>Menu Card</h2>
+    <button onclick="createCheckbox('Pizza', 10)">Pizza</button>
+    <button onclick="createCheckbox('Burger', 8)">Burger</button>
+    <button onclick="createCheckbox('Fries', 5)">Fries</button>
+</body>
+</html>

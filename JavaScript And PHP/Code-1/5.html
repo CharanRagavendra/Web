@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <script>
+        function validateForm() {
+            var name = document.forms["registrationForm"]["name"].value;
+            var email = document.forms["registrationForm"]["email"].value;
+            var countryCode = document.forms["registrationForm"]["country_code"].value;
+
+            if (name == "" || email == "" || countryCode == "") {
+                alert("All fields are mandatory");
+                return false;
+            }
+
+            var countryCodePattern = /^[A-Z]{3}$/;
+            if (!countryCode.match(countryCodePattern)) {
+                alert("Country code must be 3 uppercase alphabets");
+                return false;
+            }
+
+            alert("Success");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form name="registrationForm" onsubmit="return validateForm()">
+        Name: <input type="text" name="name"><br><br>
+        Email: <input type="email" name="email"><br><br>
+        Country Code: <input type="text" name="country_code"><br><br>
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>

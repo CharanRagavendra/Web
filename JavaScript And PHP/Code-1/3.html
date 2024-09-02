@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>COVID Cases Tracker</title>
+</head>
+<body>
+    <h2>Insert Record</h2>
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        Name: <input type="text" name="name" required><br>
+        Age: <input type="number" name="age" required><br>
+        Vaccine Type (covaxin/covishield): <input type="text" name="vaccine_type" required><br>
+        <input type="submit" name="insert" value="Insert Record">
+    </form>
+
+    <h2>Delete Record</h2>
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        Patient ID: <input type="number" name="id" required><br>
+        <input type="submit" name="delete" value="Delete Record">
+    </form>
+</body>
+</html>

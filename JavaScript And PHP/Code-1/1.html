@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PHP Form</title>
+</head>
+<body>
+    <h2>Enter Your Information</h2>
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="age">Age:</label><br>
+        <input type="text" id="age" name="age" required><br><br>
+        <label for="marks">Marks:</label><br>
+        <input type="text" id="marks" name="marks" required><br><br>
+        <label for="jcomponent_writeup">Jcomponent Writeup:</label><br>
+        <textarea id="jcomponent_writeup" name="jcomponent_writeup" rows="5" cols="50" required></textarea><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>Total Report</h2>
+    <div>
+        <?php readAndDisplayFile($1.php); ?>
+    </div>
+</body>
+</html>
